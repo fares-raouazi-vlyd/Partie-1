@@ -110,7 +110,7 @@ if (scoreManche > 1000) scoreManche = 1000;
 
         return scoreManche;
 }
-int main()
+void Manche()
 {
     std::cout << "Kills (manche 1) ? " << std::endl;
     int km1;
@@ -127,6 +127,63 @@ int main()
     int m1 = ScoreManche(km1, dm1);
     int m2 = ScoreManche(km2, dm2);
     std::cout << "Score total: " << m1 + m2<< std::endl;
-    BarreProgression(50);
+}
+void EmpruntBibliotheque()
+{
+    int premium;
+    int emprunt;
+    std::cout << "Nombre d'emprunts en cours ? " << std::endl;
+    std::cin >> emprunt;
+    std::cout << "Carte premium ? " << std::endl;
+    std::cin >> premium;
+    if (emprunt < 3 || premium == 1 && emprunt < 5)
+    {
+        std::cout << "Autorise" << std::endl;
+    }
+    else
+    {
+        std::cout << "Refuse" << std::endl;
+    }
+}
+void Calculatrice()
+{
+    int v1;
+    int v2;
+    char operateur;
+    std::cout << "a ? " << std::endl;
+    std::cin >> v1;
+    std::cout << "b ? " << std::endl;
+    std::cin >> v2;
+    std::cout << "operateur (+ - * /) ? " << std::endl;
+    std::cin >> operateur;
+    int ope = (int)operateur;
+    if (ope == 47 && v1 == 0 || v2 == 0)
+    {
+        std::cout << "Impossible de diviser par 0" << std::endl;
+    }
+    else
+    {
+        switch (ope)
+        {
+        case 43:
+            std::cout << v1 << " " << operateur << " " << v2 << " = " << v1 + v2 << std::endl;
+            break;
+        case 45:
+            std::cout << v1 << " " << operateur << " " << v2 << " = " << v1 - v2 << std::endl;
+            break;
+        case 42:
+            std::cout << v1 << " " << operateur << " " << v2 << " = " << v1 * v2 << std::endl;
+            break;
+        case 47:
+            std::cout << v1 << " " << operateur << " " << v2 << " = " << v1 / v2 << std::endl;
+            break;
+        default:
+            std::cout << "Operateur inconnu" << std::endl;
+            break;
+        }
+    }
+}
+int main()
+{
     return 0;
 }
